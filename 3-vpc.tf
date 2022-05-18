@@ -44,7 +44,6 @@ resource "aws_subnet" "private" {
   }
 }
 
-/*
 # Internet Gateway
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
@@ -55,6 +54,8 @@ resource "aws_internet_gateway" "this" {
 
   depends_on = [aws_vpc.this]
 }
+
+/*
 
 # Route Table(s)
 # Route the public subnet traffic through the IGW
