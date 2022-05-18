@@ -28,7 +28,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 }
 
-/*
+
 # Private Subnets
 resource "aws_subnet" "private" {
   count = var.availability_zones_count
@@ -44,6 +44,7 @@ resource "aws_subnet" "private" {
   }
 }
 
+/*
 # Internet Gateway
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
