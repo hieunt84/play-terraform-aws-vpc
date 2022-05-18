@@ -55,8 +55,6 @@ resource "aws_internet_gateway" "this" {
   depends_on = [aws_vpc.this]
 }
 
-/*
-
 # Route Table(s)
 # Route the public subnet traffic through the IGW
 resource "aws_route_table" "main" {
@@ -71,6 +69,8 @@ resource "aws_route_table" "main" {
     Name = "${var.project}-Default-rt"
   }
 }
+
+/*
 
 # Route table and subnet associations (liên kết)
 resource "aws_route_table_association" "internet_access" {
