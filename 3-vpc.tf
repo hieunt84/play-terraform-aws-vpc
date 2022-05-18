@@ -11,8 +11,6 @@ resource "aws_vpc" "this" {
   }
 }
 
-/*
-
 # Public Subnets
 resource "aws_subnet" "public" {
   count = var.availability_zones_count
@@ -30,6 +28,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 }
 
+/*
 # Private Subnets
 resource "aws_subnet" "private" {
   count = var.availability_zones_count
