@@ -55,6 +55,7 @@ resource "aws_internet_gateway" "this" {
   depends_on = [aws_vpc.this]
 }
 
+/*
 
 # Route Table(s)
 # Route the public subnet traffic through the IGW
@@ -78,8 +79,6 @@ resource "aws_route_table_association" "internet_access" {
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.main.id
 }
-
-/*
 
 # NAT Elastic IP
 resource "aws_eip" "main" {
