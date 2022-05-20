@@ -80,8 +80,8 @@ resource "aws_route_table_association" "internet_access" {
   route_table_id = aws_route_table.main.id
 }
 
+#########################################################
 /*
-
 # NAT Elastic IP
 resource "aws_eip" "main" {
   vpc = true
@@ -107,6 +107,8 @@ resource "aws_route" "main" {
   nat_gateway_id         = aws_nat_gateway.main.id
   destination_cidr_block = "0.0.0.0/0"
 }
+*/
+####################################################################
 
 # Security group for public subnet
 resource "aws_security_group" "public_sg" {
@@ -128,6 +130,8 @@ resource "aws_security_group_rule" "sg_ingress_public_443" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
+#########################################
+/*
 resource "aws_security_group_rule" "sg_ingress_public_80" {
   security_group_id = aws_security_group.public_sg.id
   type              = "ingress"
@@ -214,5 +218,4 @@ resource "aws_security_group_rule" "control_plane_outbound" {
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
 }
-
 */
