@@ -19,20 +19,29 @@ resource "aws_iam_role" "ec2tossm" {
 POLICY
 }
 
+#Attach role to policy
+#https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy_attachment
 resource "aws_iam_role_policy_attachment" "ec2_AmazonEC2RoleforSSM" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
   role       = aws_iam_role.ec2tossm.name
 }
 
-/*
+#Attach role to an instance profile
+#https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "ec2_profile"
+  role = aws_iam_role.ec2_role.name
+}
+
+
 #############################################
 resource "aws_instance" "test_server" {
   ami           = "ami-0ca285d4c2cda3300"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.private[0].id
-
+  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   tags = {
     Name = "${var.project}-ec2-test"
   }
 }
-*/
+
