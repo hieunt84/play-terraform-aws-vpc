@@ -1,7 +1,7 @@
 
-# EC2 IAM Role access System Manager
-resource "aws_iam_role" "ec2tosm" {
-  name = "${var.project}-ec2tosm-Role"
+# EC2 IAM Role access Servie System Manager
+resource "aws_iam_role" "ec2tossm" {
+  name = "${var.project}-ec2tossm-Role"
 
   assume_role_policy = <<POLICY
 {
@@ -21,7 +21,7 @@ POLICY
 
 resource "aws_iam_role_policy_attachment" "ec2_AmazonEC2RoleforSSM" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2RoleforSSM"
-  role       = aws_iam_role.ec2tosm.name
+  role       = aws_iam_role.ec2tossm.name
 }
 
 /*
