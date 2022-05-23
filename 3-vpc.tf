@@ -80,8 +80,6 @@ resource "aws_route_table_association" "internet_access" {
   route_table_id = aws_route_table.main.id
 }
 
-#########################################################
-/*
 # NAT Elastic IP
 resource "aws_eip" "main" {
   vpc = true
@@ -91,6 +89,8 @@ resource "aws_eip" "main" {
   }
 }
 
+#############################################################################
+/*
 # NAT Gateway charged fee
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.main.id
