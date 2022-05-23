@@ -12,3 +12,6 @@ https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terr
 https://www.ahead.com/resources/how-to-create-custom-ec2-vpcs-in-aws-using-terraform/
 https://github.com/bugbiteme/demo-tform-aws-vpc
 ```
+
+3.
+https://www.youtube.com/watch?v=jD7Icqqzdeg&list=PL184oVW5ERMBZAxkECwfJaIXXUUk-W7uj&index=3&t=366s
