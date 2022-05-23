@@ -67,7 +67,7 @@ resource "aws_security_group_rule" "ec2_outbound" {
 resource "aws_instance" "test_server" {
   ami           = "ami-0ca285d4c2cda3300"
   instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.ec2-sg.id]
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   subnet_id = aws_subnet.private[0].id
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   tags = {
