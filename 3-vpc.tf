@@ -55,8 +55,6 @@ resource "aws_internet_gateway" "this" {
   depends_on = [aws_vpc.this]
 }
 
-
-
 # Route Table(s)
 # Route the public subnet traffic through the IGW
 resource "aws_route_table" "main" {
@@ -89,8 +87,6 @@ resource "aws_eip" "main" {
   }
 }
 
-#############################################################################
-/*
 # NAT Gateway charged fee
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.main.id
@@ -107,8 +103,6 @@ resource "aws_route" "main" {
   nat_gateway_id         = aws_nat_gateway.main.id
   destination_cidr_block = "0.0.0.0/0"
 }
-*/
-####################################################################
 
 # Security group for public subnet
 resource "aws_security_group" "public_sg" {
