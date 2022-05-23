@@ -148,8 +148,6 @@ resource "aws_security_group_rule" "sg_egress_public" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-/*
-
 # Security group for data plane
 resource "aws_security_group" "data_plane_sg" {
   name   =  "${var.project}-Worker-sg"
@@ -189,6 +187,8 @@ resource "aws_security_group_rule" "node_outbound" {
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+/*
 
 # Security group for control plane
 resource "aws_security_group" "control_plane_sg" {
