@@ -87,23 +87,6 @@ resource "aws_eip" "main" {
   }
 }
 
-# NAT Gateway charged fee
-resource "aws_nat_gateway" "main" {
-  allocation_id = aws_eip.main.id
-  subnet_id     = aws_subnet.public[0].id
-
-  tags = {
-    Name = "${var.project}-ngw"
-  }
-}
-
-# Add route to route table default (Main - yes)
-resource "aws_route" "main" {
-  route_table_id         = aws_vpc.this.default_route_table_id
-  nat_gateway_id         = aws_nat_gateway.main.id
-  destination_cidr_block = "0.0.0.0/0"
-}
-
 # Security group for public subnet
 resource "aws_security_group" "public_sg" {
   name   =  "${var.project}-Public-sg"
@@ -210,3 +193,23 @@ resource "aws_security_group_rule" "control_plane_outbound" {
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+###########
+/*
+# NAT Gateway charged fee
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.main.id
+  subnet_id     = aws_subnet.public[0].id
+
+  tags = {
+    Name = "${var.project}-ngw"
+  }
+}
+
+# Add route to route table default (Main - yes)
+resource "aws_route" "main" {
+  route_table_id         = aws_vpc.this.default_route_table_id
+  nat_gateway_id         = aws_nat_gateway.main.id
+  destination_cidr_block = "0.0.0.0/0"
+}
+*/
