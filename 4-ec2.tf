@@ -1,5 +1,5 @@
-
-# EC2 IAM Role access Servie System Manager
+/*
+# Creat EC2 IAM Role access Servie System Manager
 resource "aws_iam_role" "ec2tossm" {
   name = "${var.project}-ec2tossm-Role"
 
@@ -65,7 +65,7 @@ resource "aws_security_group_rule" "ec2_outbound" {
 
 #############################################
 resource "aws_instance" "test_server" {
-  ami           = "ami-0ca285d4c2cda3300"
+  ami           = "ami-0ca285d4c2cda3300" #ami-amazon linux
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   subnet_id = aws_subnet.private[0].id
@@ -74,4 +74,6 @@ resource "aws_instance" "test_server" {
     Name = "${var.project}-ec2-test"
   }
 }
+
+*/
 
