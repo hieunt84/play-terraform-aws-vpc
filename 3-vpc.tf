@@ -97,7 +97,7 @@ resource "aws_nat_gateway" "main" {
   }
 }
 
-# Add route to route table
+# Add route to route table default (Main - yes)
 resource "aws_route" "main" {
   route_table_id         = aws_vpc.this.default_route_table_id
   nat_gateway_id         = aws_nat_gateway.main.id

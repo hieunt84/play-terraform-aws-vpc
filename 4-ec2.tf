@@ -1,4 +1,3 @@
-/*
 resource "aws_instance" "test_server" {
   ami           = "ami-0ca285d4c2cda3300"
   instance_type = "t2.micro"
@@ -8,4 +7,3 @@ resource "aws_instance" "test_server" {
     Name = "${var.project}-ec2-test"
   }
 }
-*/
