@@ -1,3 +1,5 @@
+/*
+
 # VPC
 resource "aws_vpc" "this" {
   cidr_block = var.vpc_cidr
@@ -213,3 +215,4 @@ resource "aws_route" "main" {
   destination_cidr_block = "0.0.0.0/0"
 }
 */
+
