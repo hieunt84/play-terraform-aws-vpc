@@ -1,3 +1,4 @@
+/*
 output "vpc_name" {
   value = aws_vpc.this.id
 }
