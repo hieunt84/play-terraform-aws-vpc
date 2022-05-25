@@ -1,5 +1,19 @@
 # play-terraform-aws-vpc
 
+### Mục tiêu
+```
+- tạo vpc
+  + subnet
+  + routing table
+  + internet gatway
+  + nat gateway
+  + elacstic ip
+  + security group
+- tạo IAM Role
+- tạo ec2
+- hiểu hơn về data source
+- hiểu hơn về terraform.tfvars: set giá trị đầu vào cho biến
+```
 ### Ref
 
 1.Ashish Patel
@@ -12,6 +26,8 @@ https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terr
 https://www.ahead.com/resources/how-to-create-custom-ec2-vpcs-in-aws-using-terraform/
 https://github.com/bugbiteme/demo-tform-aws-vpc
 ```
-
-3.
-https://www.youtube.com/watch?v=jD7Icqqzdeg&list=PL184oVW5ERMBZAxkECwfJaIXXUUk-W7uj&index=3&t=366s
+3.Sourav Kundu
+```
+https://skundunotes.com/2021/11/16/attach-iam-role-to-aws-ec2-instance-using-terraform/
+https://github.com/kunduso/ec2-userdata-terraform/tree/add-iam-role
+```

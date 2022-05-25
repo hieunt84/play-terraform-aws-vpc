@@ -1,4 +1,4 @@
-/*
+
 # Creat EC2 IAM Role access Servie System Manager
 resource "aws_iam_role" "ec2tossm" {
   name = "${var.project}-ec2tossm-Role"
@@ -32,7 +32,6 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_profile"
   role = aws_iam_role.ec2tossm.name
 }
-*/
 
 #############################################
 resource "aws_instance" "test_server" {
