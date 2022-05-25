@@ -116,7 +116,7 @@ resource "aws_security_group" "ec2_public_sg" {
 }
 
 # Security group traffic rules
-resource "aws_security_group_rule" "ec2_inbound" {
+resource "aws_security_group_rule" "ec2_public_inbound" {
   security_group_id = aws_security_group.ec2_public_sg.id
   type              = "ingress"
   from_port         = 0
@@ -125,8 +125,8 @@ resource "aws_security_group_rule" "ec2_inbound" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "ec2_outbound" {
-  security_group_id = aws_security_group.ec2_sg.id
+resource "aws_security_group_rule" "ec2_public_outbound" {
+  security_group_id = aws_security_group.ec2_public_sg.id
   type              = "egress"
   from_port         = 0
   to_port           = 65535
