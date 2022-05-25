@@ -32,46 +32,17 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_profile"
   role = aws_iam_role.ec2tossm.name
 }
-
-# Security group for ec2
-resource "aws_security_group" "ec2_sg" {
-  name   =  "${var.project}-ec2-sg"
-  vpc_id = aws_vpc.this.id
-
-  tags = {
-    Name = "${var.project}-ecs-sg"
-  }
-}
-
-# Security group traffic rules
-resource "aws_security_group_rule" "ec2_inbound" {
-  security_group_id = aws_security_group.ec2_sg.id
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 65535
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-}
-
-resource "aws_security_group_rule" "ec2_outbound" {
-  security_group_id = aws_security_group.ec2_sg.id
-  type              = "egress"
-  from_port         = 0
-  to_port           = 65535
-  protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
-}
-
+*/
 
 #############################################
 resource "aws_instance" "test_server" {
   ami           = "ami-0ca285d4c2cda3300" #ami-amazon linux
   instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
-  subnet_id = aws_subnet.private[0].id
-  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
+  vpc_security_group_ids = [aws_security_group.ec2_public_sg.id]
+  subnet_id = aws_subnet.public[0].id
+  #iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   tags = {
-    Name = "${var.project}-ec2-test"
+    Name = "${var.project}-ec2-public"
   }
 }
 
