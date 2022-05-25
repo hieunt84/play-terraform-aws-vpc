@@ -36,7 +36,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 
 #############################################
 resource "aws_instance" "test_server" {
-  ami           = "ami-0ca285d4c2cda3300" #ami-amazon linux
+  ami           = "ami-0022f774911c1d690" #ami-amazon linux
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ec2_public_sg.id]
   subnet_id = aws_subnet.public[0].id
