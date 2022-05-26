@@ -1,7 +1,5 @@
 # play-terraform-aws-vpc
-
-## Mục tiêu
-```
+Mục tiêu:
 - tạo vpc
   + subnet
   + routing table
@@ -13,8 +11,6 @@
 - tạo ec2
 - hiểu hơn về data source
 - hiểu hơn về terraform.tfvars: set giá trị đầu vào cho biến
-
-```
 
 ## High level diagram
 
